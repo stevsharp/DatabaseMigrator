@@ -6,8 +6,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Evolve" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
+
+
+ <ItemGroup>
+    <EmbeddedResource Include="db\**\*.sql" />
+  </ItemGroup>
+
+
+ <ItemGroup>
+   <None Remove="db\migrations\V2_3_1_2__Alter_table.sql" />
+   <None Remove="db\migrations\V2_3_1_3__Alter_table .sql" />
+ </ItemGroup>
+
+
+ <ItemGroup>
+   <EmbeddedResource Update="db\migrations\V2_3_1_3__Alter_table .sql">
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+   </EmbeddedResource>
+   <EmbeddedResource Update="db\migrations\V2_3_1_2__Alter_table.sql">
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+   </EmbeddedResource>
+   <EmbeddedResource Update="db\migrations\V2_3_1_1__Create_table.sql">
+     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+   </EmbeddedResource>
+ </ItemGroup>
 
 </Project>
